@@ -1,7 +1,7 @@
-import { catchRevert, catchInvalidOpcode } from "./helpers/exceptions";
-import { takeSnapshot, revertToSnapshot } from "./helpers/time";
+import { catchRevert, catchInvalidOpcode } from "./helpers/exceptions.js";
+import { takeSnapshot, revertToSnapshot } from "./helpers/time.js";
 
-const ERC1410Token = artifacts.require('./ERC1410Standard.sol');
+const ERC1410Token = artifacts.require('./ERC1410/examples/ERC1410Standard.sol');
 
 const Web3 = require("web3");
 const BigNumber = require("bignumber.js");
@@ -29,7 +29,7 @@ const zero_address = "0x0000000000000000000000000000000000000000";
         operator2 = accounts[6];
         tokenOwner = accounts[4];
 
-        erc1410Token = await ERC1410Token.new({from: tokenOwner});
+        erc1410Token = await ERC1410Token.new("Token", "TOKEN",{from: tokenOwner});
     });
 
     describe(`Test cases for the ERC1410 contract\n`, async () => {

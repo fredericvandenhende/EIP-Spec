@@ -1,11 +1,12 @@
-pragma solidity ^0.4.24;
+// SPDX-License-Identifier: MIT 
+pragma solidity ^0.6.0;
 
 interface IERC1644 {
 
     // Controller Operation
     function isControllable() external view returns (bool);
-    function controllerTransfer(address _from, address _to, uint256 _value, bytes _data, bytes _operatorData) external;
-    function controllerRedeem(address _tokenHolder, uint256 _value, bytes _data, bytes _operatorData) external;
+    function controllerTransfer(address _from, address _to, uint256 _value, bytes calldata _data, bytes calldata _operatorData) external;
+    function controllerRedeem(address _tokenHolder, uint256 _value, bytes calldata _data, bytes calldata _operatorData) external;
 
     // Controller Events
     event ControllerTransfer(

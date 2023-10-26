@@ -8,9 +8,9 @@
   },
   "scripts": {
     "test": "scripts/test.sh 2> /dev/null",
-    "compile": "node_modules/.bin/truffle compile --optimize-runs 200",
-    "ganache-cli": "node_modules/.bin/ganache-cli -i 15 --gasLimit 8000000",
-    "migrate:local": "node_modules/.bin/truffle migrate --network=development --reset --all"
+    "compile": "truffle compile --optimize-runs 200",
+    "ganache-cli": "ganache-cli -i 15 --gasLimit 8000000",
+    "migrate:local": "truffle migrate --network=development --reset --all"
   },
   "repository": {
     "type": "git",
@@ -38,12 +38,14 @@
     "babel-preset-stage-2": "^6.24.1",
     "babel-preset-stage-3": "^6.24.1",
     "babel-register": "^6.26.0",
-    "openzeppelin-solidity": "^2.0.0"
+    "openzeppelin-solidity": "^3.4.2",
+    "truffle": "^5.11.5"
   },
   "devDependencies": {
+    "babel": "^6.23.0",
     "bignumber.js": "^8.0.1",
     "ganache-cli": "6.1.8",
-    "web3": "^1.0.0-beta.37",
-    "truffle": "4.1.14"
+    "solc": "^0.6.0",
+    "web3": "^1.0.0-beta.37"
   }
 }

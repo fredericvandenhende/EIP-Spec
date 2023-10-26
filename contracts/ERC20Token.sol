@@ -1,4 +1,5 @@
-pragma solidity ^0.4.24;
+// SPDX-License-Identifier: MIT 
+pragma solidity ^0.6.0;
 
 import "openzeppelin-solidity/contracts/token/ERC20/IERC20.sol";
 import "openzeppelin-solidity/contracts/math/SafeMath.sol";
@@ -16,7 +17,7 @@ contract ERC20Token is IERC20 {
     /**
      * @dev Total number of tokens in existence
      */
-    function totalSupply() public view returns (uint256) {
+    function totalSupply() public override view returns (uint256) {
         return _totalSupply;
     }
 
@@ -25,7 +26,7 @@ contract ERC20Token is IERC20 {
      * @param owner The address to query the balance of.
      * @return An uint256 representing the amount owned by the passed address.
      */
-    function balanceOf(address owner) public view returns (uint256) {
+    function balanceOf(address owner) public override view returns (uint256) {
         return _balances[owner];
     }
 
@@ -40,6 +41,7 @@ contract ERC20Token is IERC20 {
         address spender
     )
         public
+        override
         view
         returns (uint256)
     {
@@ -55,7 +57,7 @@ contract ERC20Token is IERC20 {
      * @param spender The address which will spend the funds.
      * @param value The amount of tokens to be spent.
      */
-    function approve(address spender, uint256 value) public returns (bool) {
+    function approve(address spender, uint256 value) public override returns (bool) {
         require(spender != address(0));
 
         _allowed[msg.sender][spender] = value;
@@ -68,7 +70,7 @@ contract ERC20Token is IERC20 {
      * @param to The address to transfer to.
      * @param value The amount to be transferred.
      */
-    function transfer(address to, uint256 value) public returns (bool) {
+    function transfer(address to, uint256 value) public override returns (bool) {
         _transfer(msg.sender, to, value);
         return true;
     }
@@ -85,6 +87,7 @@ contract ERC20Token is IERC20 {
         uint256 value
     )
         public
+        override
         returns (bool)
     {
         _transferFrom(msg.sender, from, to, value);
@@ -175,7 +178,7 @@ contract ERC20Token is IERC20 {
      * @param value The amount that will be created.
      */
     function _mint(address account, uint256 value) internal {
-        require(account != 0);
+        require(account != address(0));
         _totalSupply = _totalSupply.add(value);
         _balances[account] = _balances[account].add(value);
         emit Transfer(address(0), account, value);
@@ -188,7 +191,7 @@ contract ERC20Token is IERC20 {
      * @param value The amount that will be burnt.
      */
     function _burn(address account, uint256 value) internal {
-        require(account != 0);
+        require(account != address(0));
         require(value <= _balances[account]);
 
         _totalSupply = _totalSupply.sub(value);

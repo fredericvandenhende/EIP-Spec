@@ -1,15 +1,17 @@
-pragma solidity ^0.4.24;
+// SPDX-License-Identifier: MIT 
+pragma solidity ^0.6.0;
 
 import "../ERC1594.sol";
-import "openzeppelin-solidity/contracts/token/ERC20/ERC20Detailed.sol";
 
-contract ERC1594Token is ERC1594, ERC20Detailed {
+contract ERC1594Token is ERC1594 {
 
-    constructor(string name, string symbol, uint8 decimals) 
-    public 
-    ERC20Detailed(name, symbol, decimals)
-    {
-
+    string private _name;
+    string private _symbol;
+    uint8 private  _decimals;
+    constructor(string memory name, string memory symbol, uint8 decimals)  public   {
+        _name=name;
+        _symbol=symbol;
+        _decimals=decimals;
     }
 
     event IssuanceFinalized();

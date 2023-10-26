@@ -1,0 +1,1421 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "tokenHolder",
+						"type": "address"
+					}
+				],
+				"name": "AuthorizedOperator",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "partition",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "tokenHolder",
+						"type": "address"
+					}
+				],
+				"name": "AuthorizedOperatorByPartition",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "Issued",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "partition",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "IssuedByPartition",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "operatorData",
+						"type": "bytes"
+					}
+				],
+				"name": "Redeemed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "partition",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "operatorData",
+						"type": "bytes"
+					}
+				],
+				"name": "RedeemedByPartition",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "tokenHolder",
+						"type": "address"
+					}
+				],
+				"name": "RevokedOperator",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "partition",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "tokenHolder",
+						"type": "address"
+					}
+				],
+				"name": "RevokedOperatorByPartition",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_operator",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "_data",
+						"type": "bytes"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "_operatorData",
+						"type": "bytes"
+					}
+				],
+				"name": "Transfer",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "_fromPartition",
+						"type": "bytes32"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_operator",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "_data",
+						"type": "bytes"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "_operatorData",
+						"type": "bytes"
+					}
+				],
+				"name": "TransferByPartition",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "HELD_FREE_PARTITION",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "TRANSIT_PARTITION",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "UNCONFIRMED_PARTITION",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "_partition",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					}
+				],
+				"name": "_validPartitionForReceiver",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_operator",
+						"type": "address"
+					}
+				],
+				"name": "authorizeOperator",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "_partition",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "_operator",
+						"type": "address"
+					}
+				],
+				"name": "authorizeOperatorByPartition",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "balanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "_partition",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "_tokenHolder",
+						"type": "address"
+					}
+				],
+				"name": "balanceOfByPartition",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_from",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_data",
+						"type": "bytes"
+					}
+				],
+				"name": "canTransfer",
+				"outputs": [
+					{
+						"internalType": "bytes1",
+						"name": "",
+						"type": "bytes1"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_from",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "_partition",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_data",
+						"type": "bytes"
+					}
+				],
+				"name": "canTransferByPartition",
+				"outputs": [
+					{
+						"internalType": "bytes1",
+						"name": "",
+						"type": "bytes1"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_operator",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_tokenHolder",
+						"type": "address"
+					}
+				],
+				"name": "isOperator",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "_partition",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "_operator",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_tokenHolder",
+						"type": "address"
+					}
+				],
+				"name": "isOperatorForPartition",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_tokenHolder",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_data",
+						"type": "bytes"
+					}
+				],
+				"name": "issue",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "_partition",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "_tokenHolder",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_data",
+						"type": "bytes"
+					}
+				],
+				"name": "issueByPartition",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_tokenHolder",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_data",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_operatorData",
+						"type": "bytes"
+					}
+				],
+				"name": "operatorIssue",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "_partition",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "_tokenHolder",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_data",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_operatorData",
+						"type": "bytes"
+					}
+				],
+				"name": "operatorIssueByPartition",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_tokenHolder",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_data",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_operatorData",
+						"type": "bytes"
+					}
+				],
+				"name": "operatorRedeem",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "_partition",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "_tokenHolder",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_data",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_operatorData",
+						"type": "bytes"
+					}
+				],
+				"name": "operatorRedeemByPartition",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_from",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_data",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_operatorData",
+						"type": "bytes"
+					}
+				],
+				"name": "operatorTransfer",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "_partition",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "_from",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_data",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_operatorData",
+						"type": "bytes"
+					}
+				],
+				"name": "operatorTransferByPartition",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_tokenHolder",
+						"type": "address"
+					}
+				],
+				"name": "partitionsOf",
+				"outputs": [
+					{
+						"internalType": "bytes32[]",
+						"name": "",
+						"type": "bytes32[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_data",
+						"type": "bytes"
+					}
+				],
+				"name": "redeem",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "_partition",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_data",
+						"type": "bytes"
+					}
+				],
+				"name": "redeemByPartition",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_operator",
+						"type": "address"
+					}
+				],
+				"name": "revokeOperator",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "_partition",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "_operator",
+						"type": "address"
+					}
+				],
+				"name": "revokeOperatorByPartition",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalSupply",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_data",
+						"type": "bytes"
+					}
+				],
+				"name": "transfer",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "_partition",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_data",
+						"type": "bytes"
+					}
+				],
+				"name": "transferByPartition",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"authorizeOperator(address)": {
+					"params": {
+						"_operator": "An address which is being authorised"
+					}
+				},
+				"authorizeOperatorByPartition(bytes32,address)": {
+					"params": {
+						"_operator": "An address which is being authorised",
+						"_partition": "The partition to which the operator is authorised"
+					}
+				},
+				"balanceOf(address)": {
+					"details": "See {IERC20-balanceOf}."
+				},
+				"balanceOfByPartition(bytes32,address)": {
+					"params": {
+						"_partition": "The partition for which to query the balance",
+						"_tokenHolder": "An address for whom to query the balance"
+					},
+					"returns": {
+						"_0": "The number of tokens owned by `_tokenHolder` with the metadata associated with `_partition`, possibly zero"
+					}
+				},
+				"canTransfer(address,address,uint256,bytes)": {
+					"params": {
+						"_data": "Additional data attached to the transfer of tokens",
+						"_from": "The address from whom the tokens get transferred.",
+						"_to": "The address to which to transfer tokens to.",
+						"_value": "The amount of tokens to transfer from `_partition`"
+					},
+					"returns": {
+						"_0": "ESC (Ethereum Status Code) following the EIP-1066 standard",
+						"_1": "Application specific reason codes with additional details",
+						"_2": "The partition to which the transferred tokens were allocated for the _to address"
+					}
+				},
+				"canTransferByPartition(address,address,bytes32,uint256,bytes)": {
+					"params": {
+						"_data": "Additional data attached to the transfer of tokens",
+						"_from": "The address from whom the tokens get transferred.",
+						"_partition": "The partition from which to transfer tokens",
+						"_to": "The address to which to transfer tokens to.",
+						"_value": "The amount of tokens to transfer from `_partition`"
+					},
+					"returns": {
+						"_0": "ESC (Ethereum Status Code) following the EIP-1066 standard",
+						"_1": "Application specific reason codes with additional details",
+						"_2": "The partition to which the transferred tokens were allocated for the _to address"
+					}
+				},
+				"isOperator(address,address)": {
+					"params": {
+						"_operator": "The operator to check",
+						"_tokenHolder": "The token holder to check"
+					},
+					"returns": {
+						"_0": "Whether the `_operator` is an operator for all partitions of `_tokenHolder`"
+					}
+				},
+				"isOperatorForPartition(bytes32,address,address)": {
+					"params": {
+						"_operator": "The operator to check",
+						"_partition": "The partition to check",
+						"_tokenHolder": "The token holder to check"
+					},
+					"returns": {
+						"_0": "Whether the `_operator` is an operator for a specified partition of `_tokenHolder`"
+					}
+				},
+				"issue(address,uint256,bytes)": {
+					"params": {
+						"_data": "Additional data attached to the minting of tokens",
+						"_tokenHolder": "The token holder whose balance should be increased",
+						"_value": "The amount by which to increase the balance"
+					}
+				},
+				"issueByPartition(bytes32,address,uint256,bytes)": {
+					"params": {
+						"_data": "Additional data attached to the minting of tokens",
+						"_partition": "The partition to allocate the increase in balance",
+						"_tokenHolder": "The token holder whose balance should be increased",
+						"_value": "The amount by which to increase the balance"
+					}
+				},
+				"operatorRedeem(address,uint256,bytes,bytes)": {
+					"details": "This function can only be called by the authorised operator.",
+					"params": {
+						"_data": "Additional data attached to the burning of tokens",
+						"_operatorData": "Additional data attached to the transfer of tokens by the operator",
+						"_tokenHolder": "The token holder whose balance should be decreased",
+						"_value": "The amount by which to decrease the balance"
+					}
+				},
+				"operatorRedeemByPartition(bytes32,address,uint256,bytes,bytes)": {
+					"details": "This function can only be called by the authorised operator.",
+					"params": {
+						"_data": "Additional data attached to the burning of tokens",
+						"_operatorData": "Additional data attached to the transfer of tokens by the operator",
+						"_partition": "The partition to allocate the decrease in balance.",
+						"_tokenHolder": "The token holder whose balance should be decreased",
+						"_value": "The amount by which to decrease the balance"
+					}
+				},
+				"operatorTransfer(address,address,uint256,bytes,bytes)": {
+					"params": {
+						"_data": "Additional data attached to the transfer of tokens",
+						"_from": "The address from which to transfer tokens from",
+						"_operatorData": "Additional data attached to the transfer of tokens by the operator",
+						"_to": "The address to which to transfer tokens to",
+						"_value": "The amount of tokens to transfer from `_partition`"
+					},
+					"returns": {
+						"_0": "The partition to which the transferred tokens were allocated for the _to address"
+					}
+				},
+				"operatorTransferByPartition(bytes32,address,address,uint256,bytes,bytes)": {
+					"params": {
+						"_data": "Additional data attached to the transfer of tokens",
+						"_from": "The address from which to transfer tokens from",
+						"_operatorData": "Additional data attached to the transfer of tokens by the operator",
+						"_partition": "The partition from which to transfer tokens",
+						"_to": "The address to which to transfer tokens to",
+						"_value": "The amount of tokens to transfer from `_partition`"
+					},
+					"returns": {
+						"_0": "The partition to which the transferred tokens were allocated for the _to address"
+					}
+				},
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"partitionsOf(address)": {
+					"params": {
+						"_tokenHolder": "An address corresponds whom partition list is queried"
+					},
+					"returns": {
+						"_0": "List of partitions"
+					}
+				},
+				"redeem(uint256,bytes)": {
+					"params": {
+						"_data": "Additional data attached to the burning of tokens",
+						"_value": "The amount by which to decrease the balance"
+					}
+				},
+				"redeemByPartition(bytes32,uint256,bytes)": {
+					"params": {
+						"_data": "Additional data attached to the burning of tokens",
+						"_partition": "The partition to allocate the decrease in balance",
+						"_value": "The amount by which to decrease the balance"
+					}
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"revokeOperator(address)": {
+					"params": {
+						"_operator": "An address which is being de-authorised"
+					}
+				},
+				"revokeOperatorByPartition(bytes32,address)": {
+					"params": {
+						"_operator": "An address which is being de-authorised",
+						"_partition": "The partition to which the operator is de-authorised"
+					}
+				},
+				"totalSupply()": {
+					"details": "See {IERC20-totalSupply}."
+				},
+				"transfer(address,uint256,bytes)": {
+					"params": {
+						"_data": "Additional data attached to the transfer of tokens",
+						"_to": "The address to which to transfer tokens to",
+						"_value": "The amount of tokens to transfer from `_partition`"
+					},
+					"returns": {
+						"_0": "The partition to which the transferred tokens were allocated for the _to address"
+					}
+				},
+				"transferByPartition(bytes32,address,uint256,bytes)": {
+					"params": {
+						"_data": "Additional data attached to the transfer of tokens",
+						"_partition": "The partition from which to transfer tokens",
+						"_to": "The address to which to transfer tokens to",
+						"_value": "The amount of tokens to transfer from `_partition`"
+					},
+					"returns": {
+						"_0": "The partition to which the transferred tokens were allocated for the _to address"
+					}
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"authorizeOperator(address)": {
+					"notice": "Authorises an operator for all partitions of `msg.sender`"
+				},
+				"authorizeOperatorByPartition(bytes32,address)": {
+					"notice": "Authorises an operator for a given partition of `msg.sender`"
+				},
+				"balanceOfByPartition(bytes32,address)": {
+					"notice": "Counts the balance associated with a specific partition assigned to an tokenHolder"
+				},
+				"canTransfer(address,address,uint256,bytes)": {
+					"notice": "The standard provides an on-chain function to determine whether a transfer will succeed, and return details indicating the reason if the transfer is not valid."
+				},
+				"canTransferByPartition(address,address,bytes32,uint256,bytes)": {
+					"notice": "The standard provides an on-chain function to determine whether a transfer will succeed, and return details indicating the reason if the transfer is not valid."
+				},
+				"isOperator(address,address)": {
+					"notice": "Determines whether `_operator` is an operator for all partitions of `_tokenHolder`"
+				},
+				"isOperatorForPartition(bytes32,address,address)": {
+					"notice": "Determines whether `_operator` is an operator for a specified partition of `_tokenHolder`"
+				},
+				"issue(address,uint256,bytes)": {
+					"notice": "Increases totalSupply and the corresponding amount of the specified owners partition"
+				},
+				"issueByPartition(bytes32,address,uint256,bytes)": {
+					"notice": "Increases totalSupply and the corresponding amount of the specified owners partition"
+				},
+				"operatorRedeem(address,uint256,bytes,bytes)": {
+					"notice": "Decreases totalSupply and the corresponding amount of the specified partition of tokenHolder"
+				},
+				"operatorRedeemByPartition(bytes32,address,uint256,bytes,bytes)": {
+					"notice": "Decreases totalSupply and the corresponding amount of the specified partition of tokenHolder"
+				},
+				"operatorTransfer(address,address,uint256,bytes,bytes)": {
+					"notice": "Transfers the ownership of tokens from a specified partition from one address to another address"
+				},
+				"operatorTransferByPartition(bytes32,address,address,uint256,bytes,bytes)": {
+					"notice": "Transfers the ownership of tokens from a specified partition from one address to another address"
+				},
+				"partitionsOf(address)": {
+					"notice": "Use to get the list of partitions `_tokenHolder` is associated with"
+				},
+				"redeem(uint256,bytes)": {
+					"notice": "Decreases totalSupply and the corresponding amount of the specified partition of msg.sender"
+				},
+				"redeemByPartition(bytes32,uint256,bytes)": {
+					"notice": "Decreases totalSupply and the corresponding amount of the specified partition of msg.sender"
+				},
+				"revokeOperator(address)": {
+					"notice": "Revokes authorisation of an operator previously given for all partitions of `msg.sender`"
+				},
+				"revokeOperatorByPartition(bytes32,address)": {
+					"notice": "Revokes authorisation of an operator previously given for a specified partition of `msg.sender`"
+				},
+				"transfer(address,uint256,bytes)": {
+					"notice": "Transfers the ownership of tokens from a specified partition from one address to another address"
+				},
+				"transferByPartition(bytes32,address,uint256,bytes)": {
+					"notice": "Transfers the ownership of tokens from a specified partition from one address to another address"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/ERC1410/ERC1410Standard.sol": "ERC1410Standard"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/ERC1410/ERC1410Standard.sol": {
+			"keccak256": "0xd50de6328de3c8dee21c26b06b9c4f48208e11adcad804c1fefe27e43b02cb66",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://dd9a741800e8079a80e60f29fc56837cdb744b71e7fa22c20dbc90bfdac2e63b",
+				"dweb:/ipfs/QmXWWvFj3caoodzMDM2XzqhiuC5hH9uncov6dxaMhXZSi2"
+			]
+		},
+		"contracts/ERC1410/IERC1410Aggregated.sol": {
+			"keccak256": "0x34da4f72c41ac5f551fcb8d5e08e9db1110fe242a96f6e4a96b9044310298aa3",
+			"urls": [
+				"bzz-raw://1d7ab425c17ff54f8e5989b8be162b063b48f88083a8bf0ed17c043f27300755",
+				"dweb:/ipfs/QmVt3wuGtgzryzyjbrrRjyL2vkVztBpCQ9oSgDvtLykQ9z"
+			]
+		},
+		"contracts/ERC1410/IERC1410Partitioned.sol": {
+			"keccak256": "0xecca0b5bb8023584b0cc6d4c33cc88ff5e160ec9dab6a887f6923f7ef26087a6",
+			"urls": [
+				"bzz-raw://23fc8c1ce717d7b469a81cc5ab594a2f646cf359c582dbe4694672a3886ddf08",
+				"dweb:/ipfs/QmXcucFs55KsogEthrVNtwtAW2PwiNboEarzJiYb5N5y7k"
+			]
+		},
+		"contracts/math/KindMath.sol": {
+			"keccak256": "0x02039ccaf2b8f87796403eb527ea47aee4ad5c108021d219907f50a7d90efc32",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://50425a47aaffd22afd4ec99fd4c2b4090bf5189e35f575503623dc2be546ff21",
+				"dweb:/ipfs/Qmed7K6vCFNZYtyHA1tH2nE1UxYQANGNAjvU9Lui9qrDVc"
+			]
+		},
+		"openzeppelin-solidity/contracts/access/Ownable.sol": {
+			"keccak256": "0x15e2d5bd4c28a88548074c54d220e8086f638a71ed07e6b3ba5a70066fcf458d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://90faf5851c02f9bd42c5bfb54d4f0421a2612f50ab80b2c4fa24fa3792071cc2",
+				"dweb:/ipfs/QmRGM4F2PcGVF85aTfaA9YBhCHHDqrMhRjyp6fGeBTtirb"
+			]
+		},
+		"openzeppelin-solidity/contracts/math/SafeMath.sol": {
+			"keccak256": "0xcc78a17dd88fa5a2edc60c8489e2f405c0913b377216a5b26b35656b2d0dab52",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://526dc85e1f9b9b45830e202568d267d93dde7a4fcccf4ad7798dadcd92304d3c",
+				"dweb:/ipfs/QmaoXMB972J3cSDLtBq3xBo4jLwqD2uzXTwujtSPqkYVhR"
+			]
+		},
+		"openzeppelin-solidity/contracts/utils/Context.sol": {
+			"keccak256": "0x8d3cb350f04ff49cfb10aef08d87f19dcbaecc8027b0bed12f3275cd12f38cf0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ded47ec7c96750f9bd04bbbc84f659992d4ba901cb7b532a52cd468272cf378f",
+				"dweb:/ipfs/QmfBrGtQP7rZEqEg6Wz6jh2N2Kukpj1z5v3CGWmAqrzm96"
+			]
+		}
+	},
+	"version": 1
+}

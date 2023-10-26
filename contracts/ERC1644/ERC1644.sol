@@ -1,4 +1,5 @@
-pragma solidity ^0.4.24;
+// SPDX-License-Identifier: MIT 
+pragma solidity ^0.6.0;
 
 import "./IERC1644.sol";
 import "openzeppelin-solidity/contracts/token/ERC20/ERC20.sol";
@@ -17,9 +18,10 @@ contract ERC1644 is ERC1644Controllable, IERC1644, ERC20 {
      * controller functions will revert
      * @param _controller Address of the controller delegated by the issuer
      */
-    constructor(address _controller)
+    constructor(address _controller,string memory name_, string memory symbol_)
     public 
     ERC1644Controllable(_controller)
+    ERC20(name_,symbol_)
     {
 
     }
@@ -31,7 +33,7 @@ contract ERC1644 is ERC1644Controllable, IERC1644, ERC20 {
      * `controllerTransfer` / `controllerRedeem` will always revert.
      * @return bool `true` when controller address is non-zero otherwise return `false`.
      */
-    function isControllable() external view returns (bool) {
+    function isControllable() external override view returns (bool) {
         return _isControllable();
     }
 
@@ -48,7 +50,7 @@ contract ERC1644 is ERC1644Controllable, IERC1644, ERC20 {
      * @param _operatorData data attached to the transfer by controller to emit in event. (It is more like a reason string 
      * for calling this function (aka force transfer) which provides the transparency on-chain). 
      */
-    function controllerTransfer(address _from, address _to, uint256 _value, bytes _data, bytes _operatorData) external onlyController {
+    function controllerTransfer(address _from, address _to, uint256 _value, bytes calldata _data, bytes calldata _operatorData) external override onlyController {
         _transfer(_from, _to, _value);
         emit ControllerTransfer(msg.sender, _from, _to, _value, _data, _operatorData);
     }
@@ -65,7 +67,7 @@ contract ERC1644 is ERC1644Controllable, IERC1644, ERC20 {
      * @param _operatorData data attached to the transfer by controller to emit in event. (It is more like a reason string 
      * for calling this function (aka force transfer) which provides the transparency on-chain). 
      */
-    function controllerRedeem(address _tokenHolder, uint256 _value, bytes _data, bytes _operatorData) external onlyController {
+    function controllerRedeem(address _tokenHolder, uint256 _value, bytes calldata _data, bytes calldata _operatorData) external override onlyController {
         _burn(_tokenHolder, _value);
         emit ControllerRedemption(msg.sender, _tokenHolder, _value, _data, _operatorData);
     }

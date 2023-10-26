@@ -1,6 +1,7 @@
-pragma solidity ^0.4.24;
+// SPDX-License-Identifier: MIT 
+pragma solidity ^0.6.0;
 
-import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
+import "openzeppelin-solidity/contracts/access/Ownable.sol";
 
 /**
  * @title ERC1644Controllable contract which contains the authorization functions
